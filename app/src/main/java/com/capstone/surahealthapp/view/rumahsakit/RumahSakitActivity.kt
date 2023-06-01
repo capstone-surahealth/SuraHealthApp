@@ -1,7 +1,8 @@
-package com.capstone.surahealthapp
+package com.capstone.surahealthapp.view.rumahsakit
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.capstone.surahealthapp.R
 
 class RumahSakitActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

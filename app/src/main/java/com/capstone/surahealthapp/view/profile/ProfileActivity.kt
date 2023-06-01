@@ -1,11 +1,11 @@
-package com.capstone.surahealthapp
+package com.capstone.surahealthapp.view.profile
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import com.capstone.surahealthapp.R
 import com.capstone.surahealthapp.databinding.ActivityProfileBinding
+import com.capstone.surahealthapp.view.home.MainActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ProfileActivity : AppCompatActivity() {
