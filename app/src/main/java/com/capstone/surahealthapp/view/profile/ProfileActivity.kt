@@ -1,8 +1,8 @@
 package com.capstone.surahealthapp.view.profile
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.capstone.surahealthapp.R
 import com.capstone.surahealthapp.databinding.ActivityProfileBinding
 import com.capstone.surahealthapp.view.home.MainActivity

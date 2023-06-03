@@ -1,18 +1,13 @@
 package com.capstone.surahealthapp.view.detailpp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
-import com.capstone.surahealthapp.R
 import com.capstone.surahealthapp.databinding.ActivityDetailPertolonganPertamaBinding
 import com.capstone.surahealthapp.utils.ResultState
 import com.capstone.surahealthapp.view.common.ViewModelFactory
-import com.capstone.surahealthapp.view.pertolonganpertama.PertolonganPertamaViewModel
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
 class DetailPertolonganPertamaActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailPertolonganPertamaBinding
@@ -33,10 +28,10 @@ class DetailPertolonganPertamaActivity : AppCompatActivity() {
     }
 
     private fun getItemDetail(itemId: Long){
-        lifecycleScope.launch {
-            viewModel.resultStateFlow.collect{resultState ->
-                when(resultState){
-                    is ResultState.Loading -> { }
+
+            viewModel.resultStateLiveData.observe(this) { resultState ->
+                when (resultState) {
+                    is ResultState.Loading -> {}
                     is ResultState.Success -> {
                         val itemDetail = resultState.data
                         binding.apply {
@@ -50,11 +45,15 @@ class DetailPertolonganPertamaActivity : AppCompatActivity() {
                     }
                     is ResultState.Error -> {
                         val errorMessage = resultState.error
-                        Toast.makeText(this@DetailPertolonganPertamaActivity, errorMessage, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@DetailPertolonganPertamaActivity,
+                            errorMessage,
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
             }
-        }
-        viewModel.getPertolonganPertamaById(itemId)
+
+        viewModel.getPertolonganPertamaById(itemId, this)
     }
 }

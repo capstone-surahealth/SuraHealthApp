@@ -1,13 +1,13 @@
 package com.capstone.surahealthapp.view.home
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.capstone.surahealthapp.R
+import com.capstone.surahealthapp.databinding.ActivityMainBinding
 import com.capstone.surahealthapp.view.pertolonganpertama.PertolonganPertamaActivity
 import com.capstone.surahealthapp.view.profile.ProfileActivity
-import com.capstone.surahealthapp.R
 import com.capstone.surahealthapp.view.rumahsakit.RumahSakitActivity
-import com.capstone.surahealthapp.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {

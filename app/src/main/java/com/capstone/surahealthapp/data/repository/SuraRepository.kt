@@ -1,40 +1,22 @@
 package com.capstone.surahealthapp.data.repository
 
-import com.capstone.surahealthapp.data.model.PertolonganDummy
-import com.capstone.surahealthapp.data.model.PertolonganPertama
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
+import androidx.lifecycle.LiveData
+import com.capstone.surahealthapp.data.lokal.PertolonganPertamaDao
+import com.capstone.surahealthapp.data.lokal.PertolonganPertamaEntity
 
-class SuraRepository {
-    private val pertolongan = mutableListOf<PertolonganPertama>()
+class SuraRepository private constructor(private val dao: PertolonganPertamaDao) {
 
-    init {
-        if (pertolongan.isEmpty()){
-            PertolonganDummy.dataDummy.forEach{
-                pertolongan.add(it)
-            }
-        }
-    }
-
-    fun getAllPertolonganPertama(): Flow<List<PertolonganPertama>> {
-        return flowOf(pertolongan)
-    }
-
-    fun getPertolonganPertamaById(pertolonganId : Long): PertolonganPertama? {
-        return pertolongan.find{
-            it.id == pertolonganId
-        }
+    fun getPertolonganPertamaById(itemId: Long): LiveData<PertolonganPertamaEntity> {
+        return dao.getPertolonganPertamaById(itemId)
     }
 
     companion object {
         @Volatile
         private var instance: SuraRepository? = null
 
-        fun getInstance(): SuraRepository =
+        fun getInstance(dao: PertolonganPertamaDao): SuraRepository =
             instance ?: synchronized(this) {
-                SuraRepository().apply {
-                    instance = this
-                }
+                instance ?: SuraRepository(dao).also { instance = it }
             }
     }
 }

@@ -1,7 +1,7 @@
 package com.capstone.surahealthapp.view.rumahsakit
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.capstone.surahealthapp.R
 
 class RumahSakitActivity : AppCompatActivity() {

@@ -6,13 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.capstone.surahealthapp.data.model.PertolonganPertama
+import com.capstone.surahealthapp.data.lokal.PertolonganPertamaEntity
 import com.capstone.surahealthapp.databinding.ItemPertolonganPertamaRowBinding
 import com.capstone.surahealthapp.view.detailpp.DetailPertolonganPertamaActivity
 
 
-class PertolonganPertamaAdapter : ListAdapter<PertolonganPertama, PertolonganPertamaAdapter.MyViewHolder>(DIFF_CALLBACK) {
+class PertolonganPertamaAdapter : ListAdapter<PertolonganPertamaEntity, PertolonganPertamaAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemPertolonganPertamaRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -27,7 +26,7 @@ class PertolonganPertamaAdapter : ListAdapter<PertolonganPertama, PertolonganPer
     }
 
     class MyViewHolder(private val binding: ItemPertolonganPertamaRowBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: PertolonganPertama){
+        fun bind(item: PertolonganPertamaEntity){
             with(binding){
                 tvPenyakit.text = item.pertolongan_pertama
 
@@ -42,12 +41,12 @@ class PertolonganPertamaAdapter : ListAdapter<PertolonganPertama, PertolonganPer
     }
 
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<PertolonganPertama>() {
-            override fun areItemsTheSame(oldItem: PertolonganPertama, newItem: PertolonganPertama): Boolean {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<PertolonganPertamaEntity>() {
+            override fun areItemsTheSame(oldItem: PertolonganPertamaEntity, newItem: PertolonganPertamaEntity): Boolean {
                 return oldItem == newItem
             }
 
-            override fun areContentsTheSame(oldItem: PertolonganPertama, newItem: PertolonganPertama): Boolean {
+            override fun areContentsTheSame(oldItem: PertolonganPertamaEntity, newItem: PertolonganPertamaEntity): Boolean {
                 return oldItem.id == newItem.id
             }
         }
