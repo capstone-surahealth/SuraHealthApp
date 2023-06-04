@@ -28,12 +28,12 @@ class StartingPertolonganPertama(private val context: Context) : RoomDatabase.Ca
         // using try catch to load the necessary data
         try {
             //creating variable that holds the loaded data
-            val ppertama = loadJSONArray(context)
-            if (ppertama != null){
+            val pPertama = loadJSONArray(context)
+            if (pPertama != null){
                 //looping through the variable as specified fields are loaded with data
-                for (i in 0 until ppertama.length()){
+                for (i in 0 until pPertama.length()){
                     //variable to obtain the JSON object
-                    val item = ppertama.getJSONObject(i)
+                    val item = pPertama.getJSONObject(i)
                     //Using the JSON object to assign data
                     val ppTitle = item.getString("pp-title")
                     val ppDescription = item.getString("pp-description")

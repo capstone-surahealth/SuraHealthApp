@@ -1,19 +1,25 @@
 package com.capstone.surahealthapp.view.pertolonganpertama
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.capstone.surahealthapp.data.lokal.PertolonganDatabase
+import androidx.lifecycle.asLiveData
 import com.capstone.surahealthapp.data.lokal.PertolonganPertamaEntity
-import kotlinx.coroutines.launch
+import com.capstone.surahealthapp.data.repository.SuraRepository
 
 class PertolonganPertamaViewModel(
-    private val ppDatabase: PertolonganDatabase
+    private val repository: SuraRepository
 ) : ViewModel() {
-    val pps = ppDatabase.dao.getAllPertolonganPertama()
 
-    fun insertPertolonganPertama(ppEntity: PertolonganPertamaEntity){
-        viewModelScope.launch {
-            ppDatabase.dao.insertPertolongan(ppEntity)
-        }
+//    private val _searchResultState: MutableLiveData<ResultState<List<PertolonganPertamaEntity>>> =
+//        MutableLiveData()
+//    val searchResultState: LiveData<ResultState<List<PertolonganPertamaEntity>>>
+//        get() = _searchResultState
+
+    fun getAllPertolonganPertama(): LiveData<List<PertolonganPertamaEntity>> {
+        return repository.getAllPertolonganPertama()
+    }
+
+    fun searchPertolonganPertama(query: String): LiveData<List<PertolonganPertamaEntity>> {
+        return repository.searchPertolonganPertama(query).asLiveData()
     }
 }

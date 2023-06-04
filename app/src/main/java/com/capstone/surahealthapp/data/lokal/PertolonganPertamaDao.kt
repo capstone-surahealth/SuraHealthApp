@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PertolonganPertamaDao {
@@ -17,4 +18,7 @@ interface PertolonganPertamaDao {
 
     @Query("SELECT * FROM Pertolongan_table WHERE id = :itemId")
     fun getPertolonganPertamaById(itemId: Long): LiveData<PertolonganPertamaEntity>
+
+    @Query("SELECT * FROM Pertolongan_table WHERE pertolongan_pertama LIKE '%' || :searchText || '%'")
+    fun searchPertolonganPertama(searchText: String): Flow<List<PertolonganPertamaEntity>>
 }
