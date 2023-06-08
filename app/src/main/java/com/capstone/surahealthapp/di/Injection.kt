@@ -2,11 +2,16 @@ package com.capstone.surahealthapp.di
 
 import android.content.Context
 import com.capstone.surahealthapp.data.lokal.PertolonganDatabase
-import com.capstone.surahealthapp.data.repository.SuraRepository
+import com.capstone.surahealthapp.data.repository.PertolonganPertamaRepository
+import com.capstone.surahealthapp.data.repository.RumahSakitRepository
 
 object Injection {
-    fun provideRepository(context: Context): SuraRepository {
+    fun provideRepository(context: Context): PertolonganPertamaRepository {
         val dao = PertolonganDatabase.getInstance(context)!!.dao
-        return SuraRepository.getInstance(dao)
+        return PertolonganPertamaRepository.getInstance(dao)
+    }
+
+    fun provideRumahSakitRepository(context: Context): RumahSakitRepository {
+        return RumahSakitRepository.getInstance()
     }
 }

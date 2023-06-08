@@ -24,9 +24,9 @@
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginTop="36dp"
-        android:src="@drawable/pandji"
         app:civ_border_color="#FF000000"
         app:civ_border_width="1dp"
+        android:src="@drawable/photo_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/jost"
-                    android:text="Pandji Alam"
+                    android:text="nama"
                     android:textAlignment="viewEnd"
                     android:textSize="18sp"
                     android:textStyle="normal" />
@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/jost"
-                    android:text="pandjiiiii23@gmail.com"
+                    android:text="emailmu@gmail.com"
                     android:textAlignment="viewEnd"
                     android:textSize="18sp"
                     android:textStyle="normal" />
@@ -192,7 +192,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/jost"
-                    android:text="1 Januari 2001"
+                    android:text="tangal lahir"
                     android:textAlignment="viewEnd"
                     android:textSize="18sp"
                     android:textStyle="normal" />

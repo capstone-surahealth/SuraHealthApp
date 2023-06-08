@@ -20,6 +20,7 @@ class PertolonganPertamaActivity : AppCompatActivity(), SearchView.OnQueryTextLi
         binding = ActivityPertolonganPertamaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         binding.rvPertolonganPertama.layoutManager = LinearLayoutManager(this)
         setupViewModel()
         showAllPertolonganPertama()

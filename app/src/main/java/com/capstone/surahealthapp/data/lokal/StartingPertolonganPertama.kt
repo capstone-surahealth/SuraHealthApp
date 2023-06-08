@@ -51,7 +51,7 @@ class StartingPertolonganPertama(private val context: Context) : RoomDatabase.Ca
         }
         //error when exception occurs
         catch (e: JSONException) {
-            Timber.d("fillWithStartingNotes: $e")
+            Timber.d("fillWithStartingPP: $e")
         }
     }
 

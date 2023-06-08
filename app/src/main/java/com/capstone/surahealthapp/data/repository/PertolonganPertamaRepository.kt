@@ -5,7 +5,7 @@ import com.capstone.surahealthapp.data.lokal.PertolonganPertamaDao
 import com.capstone.surahealthapp.data.lokal.PertolonganPertamaEntity
 import kotlinx.coroutines.flow.Flow
 
-class SuraRepository private constructor(private val dao: PertolonganPertamaDao) {
+class PertolonganPertamaRepository private constructor(private val dao: PertolonganPertamaDao) {
 
     fun getPertolonganPertamaById(itemId: Long): LiveData<PertolonganPertamaEntity> {
         return dao.getPertolonganPertamaById(itemId)
@@ -20,11 +20,11 @@ class SuraRepository private constructor(private val dao: PertolonganPertamaDao)
 
     companion object {
         @Volatile
-        private var instance: SuraRepository? = null
+        private var instance: PertolonganPertamaRepository? = null
 
-        fun getInstance(dao: PertolonganPertamaDao): SuraRepository =
+        fun getInstance(dao: PertolonganPertamaDao): PertolonganPertamaRepository =
             instance ?: synchronized(this) {
-                instance ?: SuraRepository(dao).also { instance = it }
+                instance ?: PertolonganPertamaRepository(dao).also { instance = it }
             }
     }
 }

@@ -18,13 +18,15 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/iv_photo_rumah_sakit"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
             android:src="@drawable/rs_fatmawati" />
 
         <TextView
+            android:id="@+id/tv_nama_rumah_sakit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -53,16 +55,29 @@
                 card_view:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_kelas"
+                android:id="@+id/tv_titikdua"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="80dp"
                 android:fontFamily="@font/jost"
-                android:text=": III"
+                android:text=":"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="normal"
                 card_view:layout_constraintStart_toEndOf="@+id/textView"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_kelas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/jost"
+                android:text="III"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                card_view:layout_constraintStart_toEndOf="@+id/tv_titikdua"
                 card_view:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -78,11 +93,23 @@
                 card_view:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <TextView
+                android:id="@+id/tv_titikdua2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jost"
+                android:text=":"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                card_view:layout_constraintStart_toStartOf="@+id/tv_titikdua"
+                card_view:layout_constraintTop_toBottomOf="@+id/tv_titikdua" />
+
+            <TextView
                 android:id="@+id/tv_kamar_kosong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/jost"
-                android:text=": 3"
+                android:text="3"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="normal"
@@ -102,11 +129,23 @@
                 card_view:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <TextView
+                android:id="@+id/tv_titikdua3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jost"
+                android:text=":"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                card_view:layout_constraintStart_toStartOf="@+id/tv_titikdua2"
+                card_view:layout_constraintTop_toBottomOf="@+id/tv_titikdua2" />
+
+            <TextView
                 android:id="@+id/tv_antrian"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/jost"
-                android:text=": 3"
+                android:text="3"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="normal"
