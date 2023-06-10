@@ -1,11 +1,13 @@
 package com.capstone.surahealthapp.view.rumahsakit
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.capstone.surahealthapp.MapsActivity
 import com.capstone.surahealthapp.data.model.RumahSakit
 import com.capstone.surahealthapp.databinding.ItemRowRumahSakitBinding
 
@@ -33,6 +35,12 @@ class RumahSakitAdapter : ListAdapter<RumahSakit, RumahSakitAdapter.MyViewHolder
                     .load(item.rm_photoUrl)
                     .fitCenter()
                     .into(ivPhotoRumahSakit)
+                itemView.setOnClickListener{
+                    val context = itemView.context
+                    val intent = Intent(context, MapsActivity::class.java)
+                    intent.putExtra("item_id", item.id)
+                    context.startActivity(intent)
+                }
             }
         }
     }

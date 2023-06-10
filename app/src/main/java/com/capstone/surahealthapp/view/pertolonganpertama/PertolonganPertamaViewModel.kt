@@ -10,11 +10,6 @@ class PertolonganPertamaViewModel(
     private val repository: PertolonganPertamaRepository
 ) : ViewModel() {
 
-//    private val _searchResultState: MutableLiveData<ResultState<List<PertolonganPertamaEntity>>> =
-//        MutableLiveData()
-//    val searchResultState: LiveData<ResultState<List<PertolonganPertamaEntity>>>
-//        get() = _searchResultState
-
     fun getAllPertolonganPertama(): LiveData<List<PertolonganPertamaEntity>> {
         return repository.getAllPertolonganPertama()
     }

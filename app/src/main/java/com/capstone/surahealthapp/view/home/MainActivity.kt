@@ -2,11 +2,11 @@ package com.capstone.surahealthapp.view.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.surahealthapp.R
 import com.capstone.surahealthapp.databinding.ActivityMainBinding
 import com.capstone.surahealthapp.view.pertolonganpertama.PertolonganPertamaActivity
-import com.capstone.surahealthapp.view.profile.ProfileActivity
 import com.capstone.surahealthapp.view.rumahsakit.RumahSakitActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.b_profil -> {
-                    loadActivity(ProfileActivity()::class.java)
+                    Toast.makeText(this@MainActivity, resources.getString(R.string.no_fitur), Toast.LENGTH_SHORT).show()
+                    //loadActivity(ProfileActivity()::class.java)
                     true
                 }
                 else -> {

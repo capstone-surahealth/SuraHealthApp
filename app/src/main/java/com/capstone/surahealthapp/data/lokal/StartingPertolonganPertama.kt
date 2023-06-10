@@ -25,7 +25,6 @@ class StartingPertolonganPertama(private val context: Context) : RoomDatabase.Ca
         //obtaining instance of data access object
         val dao = PertolonganDatabase.getInstance(context)?.dao
 
-        // using try catch to load the necessary data
         try {
             //creating variable that holds the loaded data
             val pPertama = loadJSONArray(context)
@@ -49,7 +48,6 @@ class StartingPertolonganPertama(private val context: Context) : RoomDatabase.Ca
                 }
             }
         }
-        //error when exception occurs
         catch (e: JSONException) {
             Timber.d("fillWithStartingPP: $e")
         }

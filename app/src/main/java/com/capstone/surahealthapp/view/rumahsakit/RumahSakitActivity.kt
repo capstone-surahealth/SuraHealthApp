@@ -1,19 +1,14 @@
 package com.capstone.surahealthapp.view.rumahsakit
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
-import com.capstone.surahealthapp.R
 import com.capstone.surahealthapp.databinding.ActivityRumahSakitBinding
 import com.capstone.surahealthapp.utils.ResultState
 import com.capstone.surahealthapp.view.common.ViewModelFactory
-import com.capstone.surahealthapp.view.pertolonganpertama.PertolonganPertamaViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class RumahSakitActivity : AppCompatActivity() {
@@ -48,7 +43,6 @@ class RumahSakitActivity : AppCompatActivity() {
                     is ResultState.Success -> {
                         val rumahSakitList = resultState.data
                         adapter.submitList(rumahSakitList)
-                        Log.d("POTO", "Foto = ${resultState.data}")
                     }
                     is ResultState.Error -> {
                         val errorMessage = resultState.error

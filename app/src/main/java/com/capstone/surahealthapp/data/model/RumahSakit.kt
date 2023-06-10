@@ -7,5 +7,6 @@ data class RumahSakit(
     val kamar_kosong: Int,
     val kelas: String,
     val lat: Double,
-    val lng: Double
+    val lng: Double,
+    val phone: String
 )
