@@ -2,6 +2,7 @@ package com.capstone.surahealthapp.di
 
 import android.content.Context
 import com.capstone.surahealthapp.data.lokal.PertolonganDatabase
+import com.capstone.surahealthapp.data.remote.ApiConfig
 import com.capstone.surahealthapp.data.repository.PertolonganPertamaRepository
 import com.capstone.surahealthapp.data.repository.RumahSakitRepository
 
@@ -11,7 +12,8 @@ object Injection {
         return PertolonganPertamaRepository.getInstance(dao)
     }
 
-    fun provideRumahSakitRepository(context: Context): RumahSakitRepository {
-        return RumahSakitRepository.getInstance()
+    fun provideRumahSakitRepository(): RumahSakitRepository {
+        val apiService = ApiConfig.getApiService()
+        return RumahSakitRepository.getInstance(apiService)
     }
 }

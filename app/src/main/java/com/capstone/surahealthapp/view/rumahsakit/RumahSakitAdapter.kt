@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.capstone.surahealthapp.MapsActivity
-import com.capstone.surahealthapp.data.model.RumahSakit
+import com.capstone.surahealthapp.view.maps.MapsActivity
+import com.capstone.surahealthapp.data.response.RumahSakitResponse
 import com.capstone.surahealthapp.databinding.ItemRowRumahSakitBinding
 
-class RumahSakitAdapter : ListAdapter<RumahSakit, RumahSakitAdapter.MyViewHolder>(DIFF_CALLBACK) {
+class RumahSakitAdapter : ListAdapter<RumahSakitResponse, RumahSakitAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemRowRumahSakitBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -26,19 +26,20 @@ class RumahSakitAdapter : ListAdapter<RumahSakit, RumahSakitAdapter.MyViewHolder
     }
 
     class MyViewHolder(private val binding: ItemRowRumahSakitBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: RumahSakit) {
+        fun bind(item: RumahSakitResponse) {
             with(binding) {
-                tvNamaRumahSakit.text = item.nama_rm
-                tvKamarKosong.text = item.kamar_kosong.toString()
+                tvNamaRumahSakit.text = item.namaRumahSakit
+                tvKamarKosong.text = item.jumlahBed.toString()
                 tvKelas.text = item.kelas
+                tvAntrian.text = item.tipe
                 Glide.with(root.context)
-                    .load(item.rm_photoUrl)
+                    .load(item.foto)
                     .fitCenter()
                     .into(ivPhotoRumahSakit)
                 itemView.setOnClickListener{
                     val context = itemView.context
                     val intent = Intent(context, MapsActivity::class.java)
-                    intent.putExtra("item_id", item.id)
+                    intent.putExtra(MapsActivity.EXTRA_KODE_RS, item)
                     context.startActivity(intent)
                 }
             }
@@ -46,16 +47,14 @@ class RumahSakitAdapter : ListAdapter<RumahSakit, RumahSakitAdapter.MyViewHolder
     }
 
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<RumahSakit>() {
-            override fun areItemsTheSame(oldItem: RumahSakit, newItem: RumahSakit): Boolean {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<RumahSakitResponse>() {
+            override fun areItemsTheSame(oldItem: RumahSakitResponse, newItem: RumahSakitResponse): Boolean {
                 return oldItem == newItem
             }
 
-            override fun areContentsTheSame(oldItem: RumahSakit, newItem: RumahSakit): Boolean {
-                return oldItem.id == newItem.id
+            override fun areContentsTheSame(oldItem: RumahSakitResponse, newItem: RumahSakitResponse): Boolean {
+                return oldItem.kodeRumahSakit == newItem.kodeRumahSakit
             }
         }
     }
-
-
 }

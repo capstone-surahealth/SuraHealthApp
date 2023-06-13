@@ -3,7 +3,6 @@ package com.capstone.surahealthapp.view.common
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.capstone.surahealthapp.MapsViewModel
 import com.capstone.surahealthapp.data.repository.PertolonganPertamaRepository
 import com.capstone.surahealthapp.data.repository.RumahSakitRepository
 import com.capstone.surahealthapp.di.Injection
@@ -13,7 +12,7 @@ import com.capstone.surahealthapp.view.rumahsakit.RumahSakitViewModel
 
 class ViewModelFactory(
     private val pertolonganPertamaRepository: PertolonganPertamaRepository,
-    private val rumahSakitRepository: RumahSakitRepository
+    private val rumahSakitRepository2: RumahSakitRepository
 ) : ViewModelProvider.NewInstanceFactory() {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -25,10 +24,7 @@ class ViewModelFactory(
                 PertolonganPertamaViewModel(pertolonganPertamaRepository) as T
             }
             modelClass.isAssignableFrom(RumahSakitViewModel::class.java) -> {
-                RumahSakitViewModel(rumahSakitRepository) as T
-            }
-            modelClass.isAssignableFrom(MapsViewModel::class.java) -> {
-                MapsViewModel(rumahSakitRepository) as T
+                RumahSakitViewModel(rumahSakitRepository2) as T
             }
 
             else -> throw  IllegalArgumentException("Unknown ViewModel class: "+ modelClass.name)
@@ -42,7 +38,7 @@ class ViewModelFactory(
             return instance ?: synchronized(this) {
                 instance?: ViewModelFactory(
                     Injection.provideRepository(context),
-                    Injection.provideRumahSakitRepository(context)
+                    Injection.provideRumahSakitRepository()
                 )
 
             }.also { instance = it }

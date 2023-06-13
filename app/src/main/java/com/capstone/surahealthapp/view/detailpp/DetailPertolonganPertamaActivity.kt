@@ -17,6 +17,7 @@ class DetailPertolonganPertamaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailPertolonganPertamaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.title = "Detail Pertolongan"
         setupViewModel()
         val itemId = intent.getLongExtra("item_id", 0)
         getItemDetail(itemId)

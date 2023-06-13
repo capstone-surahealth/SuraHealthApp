@@ -14,7 +14,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/jost"
-        android:text="Salam Sehat"
+        android:text="@string/salam_sehat"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/jost"
-        android:text="Have a nice day"
+        android:text="@string/have_a_nice_day"
         android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="@+id/tv_salam"
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/jost"
-        android:text="Menus"
+        android:text="@string/menus"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_salam2"
@@ -62,41 +62,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_menu">
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_emergency"
-            android:layout_width="120dp"
-            android:layout_height="178dp"
-            app:cardBackgroundColor="@color/purple_muda"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="4dp"
-            app:cardUseCompatPadding="true">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:layout_gravity="center"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/hospital_menu" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center"
-                    android:text="Emergency"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_rumah_sakit"
@@ -125,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:gravity="center"
-                    android:text="Rumah Sakit"
+                    android:text="@string/rumah_sakit"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp" />
 
@@ -160,7 +125,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:gravity="center"
-                    android:text="Pertolongan Pertama"
+                    android:text="@string/pertolongan_pertama"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp" />
 

@@ -1,6 +1,7 @@
 package com.capstone.surahealthapp.view.home
 
 import android.content.Intent
+import android.content.IntentSender
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,11 @@ import com.capstone.surahealthapp.R
 import com.capstone.surahealthapp.databinding.ActivityMainBinding
 import com.capstone.surahealthapp.view.pertolonganpertama.PertolonganPertamaActivity
 import com.capstone.surahealthapp.view.rumahsakit.RumahSakitActivity
+import com.google.android.gms.common.api.ResolvableApiException
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.LocationSettingsRequest
+import com.google.android.gms.location.LocationSettingsStatusCodes
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.title = "Home"
+        checkGPS()
 
         bottomNav = binding.bottomBar
         bottomNav.setOnItemSelectedListener {
@@ -46,6 +54,25 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, activityClass)
         startActivity(intent)
         finish()
+    }
+
+    private fun checkGPS() {
+        val locationRequest = LocationRequest.create().apply {
+            interval = 3000
+            priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+        }
+        val builder = LocationSettingsRequest.Builder().addLocationRequest(locationRequest)
+        val task = LocationServices.getSettingsClient(this).checkLocationSettings(builder.build())
+
+        task.addOnFailureListener { e ->
+            val statusCode = (e as ResolvableApiException).statusCode
+            if (statusCode == LocationSettingsStatusCodes.RESOLUTION_REQUIRED) {
+                try {
+                    e.startResolutionForResult(this, 100)
+                } catch (sendEx: IntentSender.SendIntentException) {
+                }
+            }
+        }
     }
 
 }

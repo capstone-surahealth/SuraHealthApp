@@ -4,106 +4,253 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapsActivity">
+    tools:context=".view.maps.MapsActivity">
 
-
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </fragment>
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:layout_marginTop="0dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="16dp"
-        android:layout_alignParentBottom="true"
-        app:cardBackgroundColor="#ffffff"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="4dp">
-
-        <!-- Konten CardView -->
-
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/nestedScrollView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_height="500dp">
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+                </fragment>
+        </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/tv_rs"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/jost"
-                        android:text="RSUD Ibu Fatmawati"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                app:cardBackgroundColor="#ffffff">
 
-                    <ImageButton
-                        android:id="@+id/ib_wa"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@drawable/arrow_right" />
+                <!-- Konten CardView -->
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <ImageView
-                    android:id="@+id/iv_photo_rs"
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/nestedScrollView"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_gravity="center"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/rs_fatmawati" />
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/tv_kelas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginStart="10dp"
-                    android:text="RSUD Ibu Fatmawati"
-                    android:fontFamily="@font/jost"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/jumlah_bed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginStart="10dp"
-                    android:text="RSUD Ibu Fatmawati"
-                    android:fontFamily="@font/jost"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black" />
-            </LinearLayout>
 
-        </androidx.core.widget.NestedScrollView>
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-    </androidx.cardview.widget.CardView>
+                            <TextView
+                                android:id="@+id/tv_rs"
+                                android:layout_width="300dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/jost"
+                                android:text="RSUD Ibu Fatmawati"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageButton
+                                android:id="@+id/ib_wa"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.0"
+                                app:srcCompat="@drawable/whatsapp_icon" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <ImageView
+                            android:id="@+id/iv_photo_rs"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:layout_gravity="center"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/rs_fatmawati" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/textView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="32dp"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/jost"
+                                android:text="@string/kelas"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <TextView
+                                android:id="@+id/tv_titikdua"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="72dp"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/jost"
+                                android:text="@string/titik_dua"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                app:layout_constraintStart_toEndOf="@+id/textView"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/tv_kelas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/jost"
+                                android:text="@string/iii"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                app:layout_constraintStart_toEndOf="@+id/tv_titikdua"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/jost"
+                                android:text="@string/tipe"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                app:layout_constraintStart_toStartOf="@+id/textView"
+                                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+                            <TextView
+                                android:id="@+id/tv_titikdua2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/jost"
+                                android:text="@string/titik_dua"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                app:layout_constraintStart_toStartOf="@+id/tv_titikdua"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_titikdua" />
+
+                            <TextView
+                                android:id="@+id/tv_tipe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/jost"
+                                android:text="@string/iii"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                app:layout_constraintStart_toStartOf="@+id/tv_kelas"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_kelas" />
+
+                            <TextView
+                                android:id="@+id/textView3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/jost"
+                                android:text="BPJS"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                app:layout_constraintStart_toStartOf="@+id/textView2"
+                                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+                            <TextView
+                                android:id="@+id/tv_titikdua3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/jost"
+                                android:text="@string/titik_dua"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                app:layout_constraintStart_toStartOf="@+id/tv_titikdua2"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_titikdua2" />
+
+                            <TextView
+                                android:id="@+id/tv_bpjs"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/jost"
+                                android:text="@string/iii"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                app:layout_constraintStart_toStartOf="@+id/tv_tipe"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_tipe" />
+
+                            <TextView
+                                android:id="@+id/textView4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/jost"
+                                android:text="Kamar Kosong"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                app:layout_constraintStart_toStartOf="@+id/textView3"
+                                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+                            <TextView
+                                android:id="@+id/tv_titikdua4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/jost"
+                                android:text="@string/titik_dua"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                app:layout_constraintStart_toStartOf="@+id/tv_titikdua3"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_titikdua3" />
+
+                            <TextView
+                                android:id="@+id/tv_bed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/jost"
+                                android:text="@string/iii"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                app:layout_constraintStart_toStartOf="@+id/tv_bpjs"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_bpjs" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+
+                </androidx.core.widget.NestedScrollView>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </LinearLayout>
 </RelativeLayout>

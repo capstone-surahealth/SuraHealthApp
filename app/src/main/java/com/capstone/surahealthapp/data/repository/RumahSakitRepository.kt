@@ -1,40 +1,37 @@
 package com.capstone.surahealthapp.data.repository
 
-import com.capstone.surahealthapp.data.model.RumahSakit
-import com.capstone.surahealthapp.data.model.RumahSakitData
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.liveData
+import com.capstone.surahealthapp.data.remote.ApiService
+import com.capstone.surahealthapp.data.response.RumahSakitResponse
+import com.capstone.surahealthapp.utils.ResultState
 
-class RumahSakitRepository {
-    private val rm = mutableListOf<RumahSakit>()
-
-    init {
-        if (rm.isEmpty()) {
-            RumahSakitData.rumahSakit.forEach {
-                rm.add(it)
-            }
+class RumahSakitRepository(private val apiService: ApiService) {
+    fun getDataRumahSakit(longitude: Double, latitude: Double): LiveData<ResultState<List<RumahSakitResponse>>> = liveData{
+        emit(ResultState.Loading)
+        try {
+            val rsLoc = apiService.getDataRumahSakitTerdekat(longitude, latitude)
+            emit(ResultState.Success(rsLoc))
+        } catch (e: Exception) {
+            Log.d(TAG, "getRumahSakitTerdekat: ${e.message.toString()}")
+            emit(ResultState.Error(e.message.toString()))
         }
     }
 
-    fun getAllRumahSakit(): Flow<List<RumahSakit>> {
-        return flowOf(rm)
-    }
-
-    fun getRumahSakitById(rumahSakitId: Long): RumahSakit {
-        return rm.first{
-            it.id == rumahSakitId
-        }
-    }
 
     companion object {
+
+        private val TAG = RumahSakitRepository::class.java.simpleName
+
+
         @Volatile
         private var instance: RumahSakitRepository? = null
 
-        fun getInstance(): RumahSakitRepository =
+        fun getInstance(apiService: ApiService): RumahSakitRepository =
             instance ?: synchronized(this) {
-                RumahSakitRepository().apply {
-                    instance = this
-                }
-            }
+                instance ?: RumahSakitRepository(apiService)
+            }.also { instance = it }
+
     }
 }

@@ -19,7 +19,7 @@ abstract class PertolonganDatabase : RoomDatabase(){
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         PertolonganDatabase::class.java,
-                        "pp"
+                    "p"
                     )
                         .addCallback(StartingPertolonganPertama(context))
                         .build()

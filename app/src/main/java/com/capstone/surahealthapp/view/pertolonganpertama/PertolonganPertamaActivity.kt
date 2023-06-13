@@ -19,6 +19,7 @@ class PertolonganPertamaActivity : AppCompatActivity(), SearchView.OnQueryTextLi
         super.onCreate(savedInstanceState)
         binding = ActivityPertolonganPertamaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.title = "Pertolongan Pertama"
 
 
         binding.rvPertolonganPertama.layoutManager = LinearLayoutManager(this)
