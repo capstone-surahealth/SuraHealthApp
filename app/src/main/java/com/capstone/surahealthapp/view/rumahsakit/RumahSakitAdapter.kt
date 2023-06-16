@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.capstone.surahealthapp.view.maps.MapsActivity
 import com.capstone.surahealthapp.data.response.RumahSakitResponse
 import com.capstone.surahealthapp.databinding.ItemRowRumahSakitBinding
+import com.capstone.surahealthapp.view.maps.MapsActivity
 
 class RumahSakitAdapter : ListAdapter<RumahSakitResponse, RumahSakitAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
